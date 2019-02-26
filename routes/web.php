@@ -13,3 +13,5 @@
 
 Route::get('/', 'TaskController@index');
 
+Route::get('/tasks/create', 'TaskController@create')->name('tasks.create');
+Route::post('/tasks/create', 'TaskController@store')->name('tasks.create');
