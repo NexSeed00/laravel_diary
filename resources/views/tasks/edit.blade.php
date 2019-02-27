@@ -19,7 +19,7 @@
               </div>
             @endif
             <form
-                action="{{ route('tasks.edit', ['task_id' => $task->id]) }}"
+                action="{{ route('tasks.update', ['task_id' => $task->id]) }}"
                 method="POST"
             >
               @csrf

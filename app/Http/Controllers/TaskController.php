@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use App\Http\Requests\CreateTask;
+use App\Http\Requests\EditTask;
 
 class TaskController extends Controller
 {
@@ -39,5 +40,17 @@ class TaskController extends Controller
         return view('tasks/edit', [
             'task' => $task,
         ]);
+    }
+
+    public function update(int $task_id, EditTask $request)
+    {
+        $task = Task::find($task_id);
+
+        $task->title = $request->title;
+        $task->status = $request->status;
+        $task->due_date = $request->due_date;
+        $task->save();
+    
+        return redirect()->route('tasks.index');
     }
 }
