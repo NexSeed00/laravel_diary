@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'TaskController@index')->name('tasks.index');
 
 Route::get('/tasks/create', 'TaskController@create')->name('tasks.create');
