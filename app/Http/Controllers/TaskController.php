@@ -23,12 +23,21 @@ class TaskController extends Controller
     }
 
     public function store(CreateTask $request)
-{
-    $task = new Task();
-    $task->title = $request->title;
-    $task->due_date = $request->due_date;
-    $task->save();
+    {
+        $task = new Task();
+        $task->title = $request->title;
+        $task->due_date = $request->due_date;
+        $task->save();
 
-    return redirect()->route('tasks.index');
-}
+        return redirect()->route('tasks.index');
+    }
+
+    public function edit(int $task_id)
+    {
+        $task = Task::find($task_id);
+
+        return view('tasks/edit', [
+            'task' => $task,
+        ]);
+    }
 }
