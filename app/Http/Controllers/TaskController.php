@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
 
@@ -28,6 +29,7 @@ class TaskController extends Controller
         $task = new Task();
         $task->title = $request->title;
         $task->due_date = $request->due_date;
+        $task->user_id = Auth::user()->id;
         $task->save();
 
         return redirect()->route('tasks.index');
