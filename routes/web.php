@@ -17,8 +17,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/tasks/create', 'TaskController@create')->name('tasks.create');
     Route::post('/tasks/create', 'TaskController@store')->name('tasks.store');
     
-    Route::get('/tasks/{task_id}/edit', 'TaskController@edit')->name('tasks.edit');
-    Route::post('/tasks/{task_id}/edit', 'TaskController@update')->name('tasks.update');
+    Route::group(['middleware' => 'can:view, task'], function() {
+        Route::get('/tasks/{task}/edit', 'TaskController@edit')->name('tasks.edit');
+    });
+
+
+    Route::post('/tasks/{task}/edit', 'TaskController@update')->name('tasks.update');
 });
 
 

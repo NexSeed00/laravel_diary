@@ -12,7 +12,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Auth::user()->tasks()->get();
         
         return view('tasks/index', [
             'tasks' => $tasks,
@@ -35,19 +35,16 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
-    public function edit(int $task_id)
+    public function edit(Task $task)
     {
-        $task = Task::find($task_id);
 
         return view('tasks/edit', [
             'task' => $task,
         ]);
     }
 
-    public function update(int $task_id, EditTask $request)
+    public function update(Task $task, EditTask $request)
     {
-        $task = Task::find($task_id);
-
         $task->title = $request->title;
         $task->status = $request->status;
         $task->due_date = $request->due_date;
