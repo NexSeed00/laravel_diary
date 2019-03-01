@@ -2,11 +2,11 @@
 
 @section('content')
   <div class="container">
-    <div class="row">
-      <div class="col col-md-offset-3 col-md-6">
-        <nav class="panel panel-default">
-          <div class="panel-heading">ログイン</div>
-          <div class="panel-body">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <nav class="bg-light border mb-3">
+          <div class="bg-dark text-light pl-3 pt-2 pb-2 rounded-top">ログイン</div>
+          <div class="p-3">
             @if($errors->any())
               <div class="alert alert-danger">
                 @foreach($errors->all() as $message)
@@ -31,7 +31,7 @@
           </div>
         </nav>
         <div class="text-center">
-          <a href="{{ route('password.request') }}">パスワードの変更はこちらから</a>
+          <a href="{{ route('password.request') }}">パスワードリセット</a>
         </div>
       </div>
     </div>
