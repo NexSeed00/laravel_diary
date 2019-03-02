@@ -10,7 +10,7 @@
       <div class="col-6">
         <nav class="bg-light border mb-3">
           <div class="bg-dark text-light pl-3 pt-2 pr-3 pb-2 rounded-top d-flex justify-content-between">日記を書く</div>
-          <div class="p-3">
+          <div class="p-3 bg-danger">
             @if($errors->any())
               <div>
                 @foreach($errors->all() as $message)

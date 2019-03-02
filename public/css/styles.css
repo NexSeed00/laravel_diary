@@ -1,16 +1,4 @@
 
-body {
+/* body {
   background-color: #f4f7f8;
-}
-
-.table td:nth-child(2),
-.table td:nth-child(3),
-.table td:nth-child(4) {
-  white-space: nowrap;
-  width: 1px;
-}
-
-.form-control[disabled],
-.form-control[readonly] {
-  background-color: #fff;
-}
+} */
