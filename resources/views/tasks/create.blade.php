@@ -6,15 +6,15 @@
 
 @section('content')
   <div class="container">
-    <div class="row">
-      <div class="col col-md-offset-3 col-md-6">
-        <nav class="panel panel-default">
-          <div class="panel-heading">タスクを追加する</div>
-          <div class="panel-body">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <nav class="bg-light border mb-3">
+          <div class="bg-dark text-light pl-3 pt-2 pr-3 pb-2 rounded-top d-flex justify-content-between">日記を書く</div>
+          <div class="p-3">
             @if($errors->any())
-              <div class="alert alert-danger">
+              <div>
                 @foreach($errors->all() as $message)
-                  <p>{{ $message }}</p>
+                  <p class="alert alert-danger">{{ $message }}</p>
                 @endforeach
               </div>
             @endif

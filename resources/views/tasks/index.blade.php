@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
       <div class="col-6">
         <div class="bg-light border mb-3">
-        <div class="bg-dark text-light pl-3 pt-2 pr-3 pb-2 rounded-top d-flex justify-content-between aline-items-center">
+        <div class="bg-dark text-light pl-3 pt-2 pr-3 pb-2 rounded-top d-flex justify-content-between">
           <div>Diary</div>
           <a href="{{ route('tasks.create') }}" class="text-right text-light">追加</a>
         </div>
