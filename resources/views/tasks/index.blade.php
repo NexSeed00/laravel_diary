@@ -5,16 +5,12 @@
 <body>
 @section('content')
   <div class="container">
-    <div class="row">
-      <div class="column col-md-12">
-        <div class="panel panel-default">
-        <div class="panel-heading">タスク</div>
-        <div class="panel-body">
-            <div class="text-right">
-                <a href="{{ route('tasks.create') }}" class="btn btn-default btn-block">
-                タスクを追加する
-                </a>
-            </div>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="bg-light border mb-3">
+        <div class="bg-dark text-light pl-3 pt-2 pr-3 pb-2 rounded-top d-flex justify-content-between aline-items-center">
+          <div>Diary</div>
+          <a href="{{ route('tasks.create') }}" class="text-right text-light">追加</a>
         </div>
         <table class="table">
             <thead>
