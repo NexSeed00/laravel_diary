@@ -30,3 +30,7 @@ Route::group(['middleware' => 'auth'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social','facebook|twitter|google');
+
+Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallback')->where('social', 'facebook|twitter|google');
