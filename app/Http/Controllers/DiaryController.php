@@ -9,6 +9,8 @@ use App\Http\Requests\CreateDiary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderShipped;
 
 class DiaryController extends Controller
 {
@@ -31,6 +33,27 @@ class DiaryController extends Controller
     {
         $diary = new Diary(); //Diaryモデルをインスタンス化
 
+        /**
+         * メール送信手順
+         * MailtrapというWebサービスに登録
+         * .envの設定を変更
+         *   - パスワードリセットのカリキュラム参照
+         * php artisan make:mail OrderShipped
+         *  - App/MailにOrderShippedができる
+         * Controllerに以下を追加
+         *  - use Illuminate\Support\Facades\Mail;
+         *  - use App\Mail\OrderShipped;
+         * メールを送信する処理を追加
+         *  - Mail::to($email)->send(new OrderShipped($content));
+         */
+
+        $email = 'test@testtest.com';
+        $content = 'こんにちは';
+
+        // toの引数が送り先メールアドレス
+        // OrderShippedの引数は何か本文などで変数使いたい場合に入れる。
+        // OrderShippedの__constructで受け取る
+        Mail::to($email)->send(new OrderShipped($content));
 
         // TODO: isValidだけでチェックできないか確認
         $fileName = null;
