@@ -46,7 +46,7 @@ $( function() {
         $.ajax({
             url: 'diary/' + diaryId +'/dislike',
             type: 'POST',
-            dataTyupe: 'json',
+            dataType: 'json',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
